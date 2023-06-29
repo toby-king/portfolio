@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Toby King</title>
+
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet" href="particle.css">
+
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+        <script src="scripts/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <script>
+            $('document').ready(function(){
+                var typed = new Typed('#typed', {
+                strings: ["Web Developer.", "Web Designer.", " Photographer.", "Coffee Enthusiast."],
+                typeSpeed: 50,
+                startDelay: 0,
+                backSpeed: 50,
+                loop: true
+                });
+            })
+        </script>
+        <div class="container-fluid page">
+            <div class="header-content">
+                <div class="row">
+                    <div class="col-lg-5 order-lg-last text-center">
+                        <picture>
+                            <source type="image/webp" srcset="assets/images/webp/tking.webp">
+                            <source type="image/png" srcset="assets/images/tking.jpg">
+                            <img src="assets/images/tking.jpg" alt="Toby King Headshot" class="headshot">
+                        </picture>
+                    </div>
+                    <div class="col-lg-7 order-lg-first">
+                        <h1 class="title">Hi, I'm <span>Toby King</span></h1>
+                        <span id="typed"></span>
+                        <p class="mt-5">Founder & Director, Polax Digital</p>
+                        <p>Lead Developer, MITIFY+</p>
+                        <p>Advisor, Trust3.0</p>
+                        <a href="/portfolio"><button class="btn btn-lg btn-outline-primary mt-4">See My Work</button></a>
+                        <div class="socials">
+                            <p>Find Me</p>
+                            <a href="https://www.linkedin.com/in/tobyking77/"><img src="assets/images/linkedin.png" alt="LinkedIn" id="linkedin"></a>
+                            <a href="https://github.com/toby-king"><img src="assets/images/github.png" alt="Github" id="github"></a>
+                            <a href="https://www.instagram.com/film.is.king/"><img src="assets/images/insta.png" alt="Insta" id="insta"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="particles-js"></div>
+        <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script src="scripts/particle.js"></script>
+    </body>
+</html>

@@ -1,0 +1,73 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("assets/fonts/Montserrat-Regular.ttf");
+}
+@font-face {
+    font-family: "Montserrat Bold";
+    src: url("assets/fonts/Montserrat-Bold.ttf");
+}
+@font-face {
+    font-family: "Montserrat Light";
+    src: url("assets/fonts/Montserrat-Light.ttf");
+}
+.page {
+    position: absolute;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+.title {
+    font-family: "Montserrat Bold";
+    font-size: 5rem;
+}
+.title span {
+    color: #5582E0;
+}
+.header-content {
+    width: 80vw;
+    margin: 0 auto;
+}
+#typed {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 4rem;
+}
+.typed-cursor {
+    font-size: 4rem;
+}
+.headshot {
+    width: 30rem;
+    height: auto;
+    border-radius: 50%;
+}
+.header-content .col-lg-7 {
+    padding-top: 5rem;
+}
+.header-content p {
+    font-family: "Montserrat Light";
+    font-size: 2rem;
+}
+.socials p {
+    font-family: "Montserrat Light";
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-top: 4rem;
+}
+#github {
+    margin: 0.5rem;
+}
+.socials img:hover {
+    filter: contrast(60%)
+}
+.btn-outline-primary {
+    border-color: #5582E0 !important;
+    color: #5582E0 !important;
+    font-family: "Montserrat";
+    border-radius: 50px !important;
+    padding: .5rem 1.5rem !important;
+}
+.btn-outline-primary:hover {
+    background-color: #5582E0 !important;
+    color: #fff !important;
+}
