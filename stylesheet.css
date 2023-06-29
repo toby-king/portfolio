@@ -3,6 +3,10 @@
     src: url("assets/fonts/Montserrat-Regular.ttf");
 }
 @font-face {
+    font-family: "Montserrat SemiBold";
+    src: url("assets/fonts/Montserrat-SemiBold.ttf");
+}
+@font-face {
     font-family: "Montserrat Bold";
     src: url("assets/fonts/Montserrat-Bold.ttf");
 }
@@ -70,4 +74,106 @@
 .btn-outline-primary:hover {
     background-color: #5582E0 !important;
     color: #fff !important;
+}
+
+/* Portfolio */
+.navbar {
+    width: 85vw;
+    margin: 0 auto;
+}
+.navbar-brand img {
+    max-width: 3rem;
+    border-radius: 50%;
+}
+.nav-link {
+    font-family: "Montserrat SemiBold";
+    font-size: 1rem;
+    color: #000 !important;
+}
+.active {
+    color: #5582E0 !important;
+}
+.portfolio-header {
+    width: 65vw;
+    margin: 0 auto;
+}
+.header-container {
+    text-align: center;
+}
+h2 {
+    font-family: "Montserrat";
+    font-size: 3rem;
+}
+.lottie-container {
+    width: 20vw;
+    margin: 0 auto;
+}
+.portfolio {
+    width: 85vw;
+    margin: 0 auto;
+}
+.img-container {
+    width: 100%;
+    height: 25vw;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 3.5vw ;
+}
+#polax {
+    background-color: #ff7502;
+}
+#trust {
+    background-color: #00DC7F;
+}
+#mitify {
+    background-color: #004893;
+}
+#blksq {
+    background-color: #AC393C;
+}
+#ewe {
+    background-color: #dc3544;
+}
+#dbs {
+    background-color: #9B5EA0;
+}
+.portfolio-img {
+    box-shadow: 3px 2px 30px 12px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+.portfolio h3 {
+    font-family: "Montserrat Bold";
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+.portfolio .type {
+    font-size: 1.8rem;
+    color: #7c7c7c;
+    font-family: "Montserrat";
+}
+.portfolio .content {
+    font-family: "Montserrat";
+    font-size: 1rem;
+    text-align: justify;
+}
+.portfolio a {
+    font-family: "Montserrat Bold";
+    text-decoration: none;
+    font-size: 1rem;
+    color: #5582E0;
+}
+.col-lg-4 {
+    margin-bottom: 2rem;
+}
+.footer {
+    font-family: "Montserrat";
+}
+@media screen and (min-width: 768px) {
+    .img-container {
+        height: 65vw !important;
+        text-align: center;
+    }
+    .portfolio-img {
+        width: 65%;
+    }
 }
