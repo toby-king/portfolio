@@ -41,7 +41,7 @@
     font-size: 4rem;
 }
 .headshot {
-    width: 30rem;
+    width: 30vw;
     height: auto;
     border-radius: 50%;
 }
@@ -175,5 +175,20 @@ h2 {
     }
     .portfolio-img {
         width: 65%;
+    }
+    .headshot {
+        margin-top: 3rem;
+    }
+    .title {
+        font-size: 3.5rem;
+    }
+    #typed {
+        font-size: 2rem;
+    }
+    .header-content p {
+        font-size: 1.2rem;
+    }
+    .lottie-container {
+        width: 40vw;
     }
 }
