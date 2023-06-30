@@ -61,6 +61,10 @@
 #github {
     margin: 0.5rem;
 }
+.socials img {
+    height: 45px;
+    width: 45px;
+}
 .socials img:hover {
     filter: contrast(60%)
 }
