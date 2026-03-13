@@ -37,15 +37,15 @@ export default function StickyNav() {
       <div className="max-w-[600px] mx-auto flex items-center justify-between rounded-xl border border-border-subtle px-6 py-2.5 shadow-[0_4px_24px_rgba(0,0,0,0.3)]"
         style={{ background: "rgba(28, 36, 24, 0.85)", backdropFilter: "blur(16px)" }}
       >
-        <span className="font-display text-base text-gold">Toby.</span>
+        <span className="font-display text-base text-gold">Toby King.</span>
         <div className="flex gap-5">
-          {["about", "projects", "skills", "blog"].map((id) => (
+          {[{ id: "about", label: "About" }, { id: "projects", label: "Projects" }, { id: "skills", label: "Skills" }, { id: "blog", label: "Writing" }].map(({ id, label }) => (
             <button
               key={id}
               onClick={() => scrollTo(id)}
               className="bg-transparent border-none font-mono text-[11px] tracking-wider text-cream-faint capitalize p-0 py-1 transition-colors duration-200 hover:text-gold"
             >
-              {id}
+              {label}
             </button>
           ))}
         </div>

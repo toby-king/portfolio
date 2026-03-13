@@ -129,8 +129,8 @@ export default function HomePage() {
 
           {/* Skills */}
           <Section id="skills" delay={0.05}>
-            <SectionLabel number="03" text="Tech Stack" />
-            <div className="skills-grid grid grid-cols-4 gap-3.5">
+            <SectionLabel number="03" text="Skills" />
+            <div className="skills-grid grid grid-cols-3 gap-3.5">
               {SKILLS.map((skill, index) => (
                 <GradientCard key={index} gradient={PASTEL_GRADIENTS[skill.gradient]}>
                   <h4 className="font-display text-[17px] text-cream mb-3">{skill.title}</h4>
@@ -163,10 +163,9 @@ export default function HomePage() {
             <GradientCard gradient={FULL_RAINBOW}>
               <div className="flex justify-center flex-wrap py-2 gap-[clamp(24px,6vw,48px)]">
                 {[
-                  { label: "GitHub", href: "https://github.com/tobykeegan", icon: <GithubIcon /> },
-                  { label: "LinkedIn", href: "https://linkedin.com/in/tobykeegan", icon: <LinkedInIcon /> },
-                  { label: "X", href: "https://x.com/tobykeegan", icon: <XIcon /> },
-                  { label: "Email", href: "mailto:hello@toby.dev", icon: <EmailIcon /> },
+                  { label: "GitHub", href: "https://github.com/toby-king", icon: <GithubIcon /> },
+                  { label: "LinkedIn", href: "https://www.linkedin.com/in/tobyking77/", icon: <LinkedInIcon /> },
+                  { label: "Email", href: "mailto:toby.king77@gmail.com", icon: <EmailIcon /> },
                 ].map(({ label, href, icon }) => (
                   <a
                     key={label}
@@ -217,14 +216,6 @@ function LinkedInIcon() {
       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
       <rect x="2" y="9" width="4" height="12" />
       <circle cx="4" cy="4" r="2" />
-    </svg>
-  );
-}
-
-function XIcon() {
-  return (
-    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 4l6.5 8L4 20h2l5.5-6.8L16 20h4l-6.8-8.5L20 4h-2l-5.2 6.3L9 4H4z" />
     </svg>
   );
 }
