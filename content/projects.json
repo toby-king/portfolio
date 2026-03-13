@@ -1,0 +1,55 @@
+[
+  {
+    "id": "acquiro",
+    "type": "Platform",
+    "title": "Acquiro",
+    "isNew": true,
+    "desc": "AI-powered M&A advisory — \"Rightmove for businesses.\" Aggregates 30k+ UK business listings with voice agents for buyer discovery calls.",
+    "tags": ["React", "Supabase", "ElevenLabs", "Pinecone", "OpenAI"],
+    "gradient": 6,
+    "img": null,
+    "placeholder": "A",
+    "link": null,
+    "sortOrder": 0,
+    "published": true
+  },
+  {
+    "id": "mac-plus-terminal",
+    "type": "Hardware + Software",
+    "title": "Mac Plus Terminal",
+    "desc": "Restored 1986 Mac Plus running a React smart-home dashboard styled after System 7. Voice control, CRT glass mounted over OLED.",
+    "tags": ["React", "Vite", "N100", "Mini-ITX", "Hardware"],
+    "gradient": 2,
+    "img": null,
+    "placeholder": "M",
+    "link": null,
+    "sortOrder": 1,
+    "published": true
+  },
+  {
+    "id": "legacy-erp-migration",
+    "type": "Analysis",
+    "title": "Legacy ERP Migration",
+    "desc": "Reverse-engineered a 1989 bespoke ERP system — 258 active functions, 23+ database tables. Mapped complete migration to modern SaaS.",
+    "tags": ["Pick/MV", "Xero", "Cin7", "Documentation"],
+    "gradient": 4,
+    "img": null,
+    "placeholder": "E",
+    "link": null,
+    "sortOrder": 2,
+    "published": true
+  },
+  {
+    "id": "web-dev-agency",
+    "type": "Agency",
+    "title": "Web Dev Agency",
+    "desc": "Marketing & web development agency building recurring revenue through care plans, AI-driven SEO, and industrial client lead generation.",
+    "tags": ["Strategy", "SEO", "Lead Gen", "Web Dev"],
+    "gradient": 1,
+    "img": null,
+    "placeholder": "W",
+    "link": null,
+    "sortOrder": 3,
+    "published": true
+  }
+]

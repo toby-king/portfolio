@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+/* ====== THEME ====== */
+@theme {
+  --color-base-bg: #1c2418;
+  --color-base-bg-light: #232e1e;
+  --color-base-card: #2a3624;
+  --color-gold: #F5C842;
+  --color-gold-dim: #C49A1A;
+  --color-gold-faint: rgba(245, 200, 66, 0.12);
+  --color-cream: #e8e0d0;
+  --color-cream-dim: #b0a890;
+  --color-cream-faint: #7a7260;
+  --color-terminal: #4ade80;
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-subtle-light: rgba(255, 255, 255, 0.1);
+
+  --font-display: 'Caprasimo', serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --animate-pulse-badge: pulse-badge 2.5s ease infinite;
+  --animate-gradient-shift: gradient-shift 8s ease infinite;
+  --animate-cursor-blink: cursor-blink 1s step-end infinite;
+  --animate-marquee: marquee-scroll 35s linear infinite;
+  --animate-hero-float: hero-float 4s ease-in-out infinite alternate;
+
+  --spacing-18: 4.5rem;
+
+  @keyframes pulse-badge {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  @keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes hero-float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+  }
+
+  @keyframes float-blob {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, -50px) scale(1.15); }
+  }
+}
+
+/* ====== BASE ====== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-base-bg);
+  color: var(--color-cream);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-base-bg);
+}
+
+/* ====== CUSTOM CURSOR (desktop only) ====== */
+@media (min-width: 641px) {
+  * { cursor: none !important; }
+  a, button, input, select, textarea, [role="button"] { cursor: none !important; }
+}
+
+/* ====== COMPONENT STYLES ====== */
+
+/* Gradient top stripe on cards */
+.card-stripe {
+  height: 4px;
+}
+
+/* Rainbow gradient bar */
+.rainbow-bar {
+  background: linear-gradient(135deg, #FFB5A7, #F8B4D9, #BDB2FF, #A0C4FF, #8EECF5, #98F5E1, #FDE2A7, #FFB5A7);
+  background-size: 300% 100%;
+}
+
+/* Project card image area fallback */
+.project-hero {
+  height: 140px;
+}
+
+/* Terminal block */
+.terminal-block {
+  background: #111;
+}
+
+.terminal-bar {
+  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-dim));
+}
+
+/* Section divider line */
+.section-divider {
+  background: linear-gradient(90deg, rgba(196, 154, 26, 0.27), transparent);
+}
+
+/* Center divider */
+.center-divider {
+  background: linear-gradient(90deg, transparent, rgba(196, 154, 26, 0.33), transparent);
+}
+
+/* Splash screen curtain transition */
+.curtain {
+  transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Splash text container transition */
+.splash-text {
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Reveal animation */
+.reveal-enter {
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Card hover transition */
+.card-base {
+  transition: box-shadow 0.35s, transform 0.35s, border-color 0.35s;
+}
+
+/* Sticky nav transition */
+.sticky-nav {
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s ease;
+}
+
+/* Blog row */
+.blog-row {
+  grid-template-columns: 110px 1fr auto;
+}
+
+/* Tilt card */
+.tilt-card {
+  will-change: transform;
+}
+
+/* Nav underline */
+.nav-underline {
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 640px) {
+  .projects-grid { grid-template-columns: 1fr !important; }
+  .skills-grid { grid-template-columns: 1fr 1fr !important; }
+  .blog-row { grid-template-columns: 1fr !important; gap: 4px !important; }
+  .footer-links { grid-template-columns: 1fr !important; }
+  .about-grid { grid-template-columns: 1fr !important; }
+  .about-grid > div:first-child { justify-self: center; }
+}
+
+@media (max-width: 400px) {
+  .skills-grid { grid-template-columns: 1fr !important; }
+}
