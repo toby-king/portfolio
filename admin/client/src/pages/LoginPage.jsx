@@ -24,8 +24,11 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
-      <form onSubmit={handleSubmit} className="w-full max-w-sm">
-        <h1 className="text-gold text-lg mb-6 text-center">Admin Login</h1>
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-sm bg-post-paper border border-post-rule rounded-2xl p-8 shadow-[0_10px_40px_rgba(28,36,24,0.08)]"
+      >
+        <h1 className="font-display text-post-ink text-2xl mb-6 text-center">Admin Login</h1>
 
         <input
           type="password"
@@ -33,7 +36,7 @@ export default function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           autoFocus
-          className="w-full bg-card border border-border rounded-lg px-4 py-3 text-sm text-cream placeholder:text-cream-faint mb-3"
+          className="w-full bg-post-paper border border-post-rule rounded-lg px-4 py-3 text-sm text-post-ink placeholder:text-post-muted mb-3"
         />
 
         {error && (

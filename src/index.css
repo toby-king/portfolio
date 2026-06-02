@@ -15,6 +15,18 @@
   --color-border-subtle: rgba(255, 255, 255, 0.06);
   --color-border-subtle-light: rgba(255, 255, 255, 0.1);
 
+  /* ── Editorial post theme (light reading surface) ──
+     Ported from Claude Design "Classic Editorial" direction.
+     To switch the accent back to forest green, set --color-post-accent
+     to #1F8A5B (the design's green option). */
+  --color-post-paper: #ffffff;
+  --color-post-accent: #C49A1A;            /* gold — design's locked default */
+  --color-post-ink: #1c2418;               /* headings, strong, titles */
+  --color-post-body: #34402c;              /* body copy */
+  --color-post-muted: #6f7a62;             /* meta, captions, nav */
+  --color-post-rule: rgba(28, 36, 24, 0.12);
+  --color-post-edge: rgba(28, 36, 24, 0.06);
+
   --font-display: 'Caprasimo', serif;
   --font-body: 'Source Serif 4', Georgia, serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -157,6 +169,229 @@ body {
 .nav-underline {
   transition: transform 0.3s ease;
   transform-origin: left;
+}
+
+/* ====== EDITORIAL POST BODY ======
+   Mirrors #post-body from the Claude Design editorial.html prototype.
+   MarkdownRenderer outputs semantic HTML into .post-article; styling lives here. */
+.post-article p {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.78;
+  color: var(--color-post-body);
+  margin: 0 0 26px;
+}
+/* Lede — first paragraph, slightly larger, with editorial drop cap */
+.post-article > p:first-of-type { font-size: 19.5px; }
+.post-article > p:first-of-type::first-letter {
+  font-family: var(--font-display);
+  float: left;
+  font-size: 76px;
+  line-height: 0.82;
+  padding: 6px 14px 0 0;
+  color: var(--color-post-accent);
+}
+.post-article h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(30px, 5vw, 40px);
+  line-height: 1.08;
+  color: var(--color-post-ink);
+  margin: 48px 0 16px;
+  letter-spacing: -0.01em;
+}
+.post-article h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(26px, 4vw, 34px);
+  line-height: 1.12;
+  color: var(--color-post-ink);
+  margin: 52px 0 18px;
+  letter-spacing: -0.01em;
+  position: relative;
+  padding-top: 26px;
+}
+.post-article h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 3px;
+  background: var(--color-post-accent);
+}
+.post-article h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--color-post-ink);
+  margin: 36px 0 12px;
+}
+.post-article a {
+  color: var(--color-post-accent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--color-post-accent) 38%, transparent);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+.post-article a:hover { text-decoration-color: var(--color-post-accent); }
+.post-article strong { color: var(--color-post-ink); font-weight: 700; }
+.post-article em { font-style: italic; }
+
+/* Lists — custom gold markers */
+.post-article ul,
+.post-article ol {
+  margin: 0 0 26px;
+  padding-left: 4px;
+  list-style: none;
+  counter-reset: li;
+}
+.post-article li {
+  position: relative;
+  font-family: var(--font-body);
+  font-size: 17.5px;
+  line-height: 1.7;
+  color: var(--color-post-body);
+  padding-left: 30px;
+  margin-bottom: 14px;
+}
+.post-article ul li::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 13px;
+  width: 7px;
+  height: 7px;
+  background: var(--color-post-accent);
+  border-radius: 50%;
+}
+.post-article ol li { counter-increment: li; }
+.post-article ol li::before {
+  content: counter(li, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-post-accent);
+  font-weight: 700;
+}
+
+/* Centered display pull-quote */
+.post-article blockquote {
+  margin: 40px auto;
+  padding: 8px 0;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(24px, 3.6vw, 31px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  max-width: 18ch;
+  color: var(--color-post-ink);
+}
+.post-article blockquote p {
+  color: var(--color-post-ink);
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+.post-article blockquote::before {
+  content: "\201C";
+  display: block;
+  font-family: var(--font-display);
+  font-size: 64px;
+  color: var(--color-post-accent);
+  line-height: 0;
+  margin-bottom: 30px;
+}
+
+/* Code — dark terminal block with gold top stripe */
+.post-article pre {
+  background: #14180f;
+  border: 1px solid #2a3624;
+  border-radius: 12px;
+  padding: 22px 24px;
+  overflow-x: auto;
+  margin: 32px 0;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(28, 36, 24, 0.14);
+}
+.post-article pre::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 12px 12px 0 0;
+  background: var(--color-post-accent);
+}
+.post-article pre code {
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #98F5E1;
+  background: none;
+  padding: 0;
+  display: block;
+}
+.post-article :not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: rgba(28, 36, 24, 0.07);
+  color: var(--color-post-ink);
+  padding: 2px 6px;
+  border-radius: 5px;
+}
+
+/* Figures */
+.post-article figure { margin: 40px 0; }
+.post-article img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+.post-article figcaption {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-post-muted);
+  margin-top: 12px;
+  padding-left: 14px;
+  border-left: 2px solid var(--color-post-accent);
+}
+
+.post-article hr {
+  border: none;
+  height: 1px;
+  background: var(--color-post-rule);
+  margin: 44px 0;
+}
+
+/* Tables */
+.post-article table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  margin: 28px 0;
+}
+.post-article th {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-post-rule);
+  color: var(--color-post-ink);
+  font-weight: 600;
+}
+.post-article td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-post-rule);
+  color: var(--color-post-body);
+}
+
+@media (max-width: 560px) {
+  .post-article > p:first-of-type::first-letter { font-size: 60px; }
 }
 
 /* ====== RESPONSIVE ====== */

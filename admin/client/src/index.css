@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+  /* Admin chrome (dark — matches the portfolio brand) */
   --color-bg: #1c2418;
   --color-bg-light: #232e1e;
   --color-card: #2a3624;
@@ -15,172 +16,232 @@
   --color-danger-faint: rgba(239, 68, 68, 0.12);
   --color-border: rgba(255, 255, 255, 0.06);
   --color-border-light: rgba(255, 255, 255, 0.1);
+
+  /* Editorial post theme — mirrors the public post page so you write
+     in exactly what readers see. To switch the accent to forest green,
+     set --color-post-accent to #1F8A5B. */
+  --color-post-paper: #ffffff;
+  --color-post-accent: #C49A1A;
+  --color-post-ink: #1c2418;
+  --color-post-body: #34402c;
+  --color-post-muted: #6f7a62;
+  --color-post-rule: rgba(28, 36, 24, 0.12);
+  --color-post-edge: rgba(28, 36, 24, 0.06);
+
   --font-display: 'Caprasimo', serif;
   --font-body: 'Source Serif 4', Georgia, serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
+/* Warm paper-grey admin surface so white cards/inputs read against it */
 body {
-  background: var(--color-bg);
-  color: var(--color-cream);
+  background: #f4f2ec;
+  color: var(--color-post-body);
   font-family: var(--font-mono);
 }
 
 ::selection {
-  background: var(--color-gold);
-  color: var(--color-bg);
+  background: var(--color-post-accent);
+  color: #fff;
 }
 
 textarea:focus, input:focus, select:focus {
-  outline: 1px solid var(--color-gold-dim);
+  outline: 1px solid var(--color-post-accent);
   outline-offset: -1px;
 }
 
-/* ====== TIPTAP EDITOR — matches frontend blog styles ====== */
+/* ====================================================================
+   TIPTAP EDITOR — editorial reading theme (white paper)
+   Ported from the Claude Design editorial.html prototype, kept in sync
+   with `.post-article` on the public site. The admin chrome (nav,
+   toolbar) stays dark; only the writing canvas is the light paper.
+   ==================================================================== */
 
 .editor-content {
-  padding: 2rem;
-  min-height: 400px;
-  max-height: 70vh;
-  overflow-y: auto;
+  padding: clamp(28px, 4vw, 48px) clamp(24px, 5vw, 56px);
+  min-height: 480px;
+  background: var(--color-post-paper);
+  color: var(--color-post-body);
 }
 
-.editor-content:focus {
-  outline: none;
-}
+.editor-content:focus { outline: none; }
 
 /* Placeholder */
 .tiptap p.is-editor-empty:first-child::before {
   content: attr(data-placeholder);
   float: left;
-  color: var(--color-cream-faint);
+  color: var(--color-post-muted);
   pointer-events: none;
   height: 0;
   font-family: var(--font-body);
 }
 
-/* Headings — match MarkdownRenderer */
-.tiptap h1 {
-  font-family: var(--font-display);
-  font-size: clamp(28px, 5vw, 40px);
-  color: var(--color-gold);
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.15;
-}
-
-.tiptap h2 {
-  font-family: var(--font-display);
-  font-size: clamp(22px, 4vw, 30px);
-  color: var(--color-cream);
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
-  line-height: 1.15;
-}
-
-.tiptap h3 {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  color: var(--color-cream);
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Paragraphs */
+/* Body */
 .tiptap p {
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.85;
-  color: var(--color-cream-dim);
-  margin-bottom: 1rem;
+  font-size: 18px;
+  line-height: 1.78;
+  color: var(--color-post-body);
+  margin: 0 0 26px;
 }
 
-/* Bold & italic */
-.tiptap strong {
-  font-weight: 600;
-  color: var(--color-cream);
+/* Headings */
+.tiptap h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(30px, 5vw, 40px);
+  line-height: 1.08;
+  color: var(--color-post-ink);
+  margin: 48px 0 16px;
+  letter-spacing: -0.01em;
+}
+.tiptap h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(26px, 4vw, 34px);
+  line-height: 1.12;
+  color: var(--color-post-ink);
+  margin: 52px 0 18px;
+  letter-spacing: -0.01em;
+  position: relative;
+  padding-top: 26px;
+}
+.tiptap h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 3px;
+  background: var(--color-post-accent);
+}
+.tiptap h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--color-post-ink);
+  margin: 36px 0 12px;
 }
 
-.tiptap em {
-  font-style: italic;
-  color: var(--color-cream-faint);
-}
-
-.tiptap s {
-  text-decoration: line-through;
-  color: var(--color-cream-faint);
-}
+/* Inline marks */
+.tiptap strong { font-weight: 700; color: var(--color-post-ink); }
+.tiptap em { font-style: italic; }
+.tiptap s { text-decoration: line-through; color: var(--color-post-muted); }
 
 /* Links */
 .editor-link {
-  color: var(--color-gold);
+  color: var(--color-post-accent);
   text-decoration: underline;
-  text-decoration-color: rgba(196, 154, 26, 0.4);
+  text-decoration-color: color-mix(in oklab, var(--color-post-accent) 38%, transparent);
+  text-underline-offset: 3px;
   cursor: text;
 }
 
-/* Lists */
-.tiptap ul {
-  list-style: disc;
-  padding-left: 1.5rem;
-  font-family: var(--font-body);
-  color: var(--color-cream-dim);
-  margin-bottom: 1rem;
-}
-
+/* Lists — custom gold markers */
+.tiptap ul,
 .tiptap ol {
-  list-style: decimal;
-  padding-left: 1.5rem;
-  font-family: var(--font-body);
-  color: var(--color-cream-dim);
-  margin-bottom: 1rem;
+  margin: 0 0 26px;
+  padding-left: 4px;
+  list-style: none;
+  counter-reset: li;
 }
-
 .tiptap li {
-  line-height: 1.75;
-  margin-bottom: 0.25rem;
-}
-
-.tiptap li p {
-  margin-bottom: 0.25rem;
-}
-
-/* Blockquote */
-.tiptap blockquote {
-  border-left: 2px solid rgba(245, 200, 66, 0.4);
-  padding-left: 1rem;
-  margin: 1rem 0;
-  font-style: italic;
-  color: var(--color-cream-faint);
+  position: relative;
   font-family: var(--font-body);
+  font-size: 17.5px;
+  line-height: 1.7;
+  color: var(--color-post-body);
+  padding-left: 30px;
+  margin-bottom: 14px;
+}
+.tiptap li p { margin-bottom: 0.25rem; }
+.tiptap ul li::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 13px;
+  width: 7px;
+  height: 7px;
+  background: var(--color-post-accent);
+  border-radius: 50%;
+}
+.tiptap ol li { counter-increment: li; }
+.tiptap ol li::before {
+  content: counter(li, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-post-accent);
+  font-weight: 700;
 }
 
+/* Centered display pull-quote */
+.tiptap blockquote {
+  margin: 40px auto;
+  padding: 8px 0;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(24px, 3.6vw, 31px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  max-width: 22ch;
+  color: var(--color-post-ink);
+}
 .tiptap blockquote p {
-  color: var(--color-cream-faint);
+  color: var(--color-post-ink);
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  font-style: normal;
+}
+.tiptap blockquote::before {
+  content: "\201C";
+  display: block;
+  font-family: var(--font-display);
+  font-size: 64px;
+  color: var(--color-post-accent);
+  line-height: 0;
+  margin-bottom: 30px;
 }
 
 /* Inline code */
 .tiptap code {
-  background: rgba(255, 255, 255, 0.06);
-  padding: 0.1rem 0.375rem;
-  border-radius: 0.25rem;
-  font-size: 0.875rem;
   font-family: var(--font-mono);
-  color: var(--color-gold);
+  font-size: 0.85em;
+  background: rgba(28, 36, 24, 0.07);
+  color: var(--color-post-ink);
+  padding: 2px 6px;
+  border-radius: 5px;
 }
 
-/* Code block */
+/* Code block — dark terminal with gold top stripe */
 .editor-code-block {
-  background: #111;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  margin: 1rem 0;
+  background: #14180f;
+  border: 1px solid #2a3624;
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin: 32px 0;
   overflow-x: auto;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(28, 36, 24, 0.14);
   font-family: var(--font-mono);
-  font-size: 0.875rem;
-  color: var(--color-terminal);
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #98F5E1;
 }
-
+.editor-code-block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 12px 12px 0 0;
+  background: var(--color-post-accent);
+}
 .editor-code-block code {
   background: none;
   padding: 0;
@@ -192,24 +253,23 @@ textarea:focus, input:focus, select:focus {
 .tiptap hr {
   border: none;
   height: 1px;
-  background: var(--color-border);
-  margin: 2rem 0;
+  background: var(--color-post-rule);
+  margin: 44px 0;
 }
 
 /* Images */
 .editor-image {
-  border-radius: 0.75rem;
+  border-radius: 12px;
   max-width: 100%;
-  margin: 1.5rem 0;
+  margin: 2rem 0;
 }
-
 .tiptap .ProseMirror-selectednode {
-  outline: 2px solid var(--color-gold);
+  outline: 2px solid var(--color-post-accent);
   outline-offset: 2px;
-  border-radius: 0.75rem;
+  border-radius: 12px;
 }
 
 /* Text alignment */
 .tiptap [style*="text-align: center"] { text-align: center; }
-.tiptap [style*="text-align: right"] { text-align: right; }
-.tiptap [style*="text-align: left"] { text-align: left; }
+.tiptap [style*="text-align: right"]  { text-align: right; }
+.tiptap [style*="text-align: left"]   { text-align: left; }

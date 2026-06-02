@@ -19,13 +19,13 @@ export default function PostsListPage() {
   };
 
   if (loading) {
-    return <div className="text-cream-faint text-sm">Loading...</div>;
+    return <div className="text-post-muted text-sm">Loading...</div>;
   }
 
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-gold text-xl">Posts</h1>
+        <h1 className="font-display text-post-ink text-3xl">Posts</h1>
         <Link
           to="/posts/new"
           className="bg-gold text-bg text-xs font-medium px-4 py-2 rounded-lg hover:bg-gold-dim transition-colors no-underline"
@@ -35,29 +35,29 @@ export default function PostsListPage() {
       </div>
 
       {posts.length === 0 ? (
-        <p className="text-cream-faint text-sm">No posts yet.</p>
+        <p className="text-post-muted text-sm">No posts yet.</p>
       ) : (
-        <div className="border border-border rounded-xl overflow-hidden">
+        <div className="bg-post-paper border border-post-rule rounded-xl overflow-hidden">
           {posts.map((post, index) => (
             <div
               key={post.slug}
               className={`flex items-center justify-between px-5 py-3.5 ${
-                index < posts.length - 1 ? "border-b border-border" : ""
+                index < posts.length - 1 ? "border-b border-post-rule" : ""
               }`}
             >
               <div className="flex-1 min-w-0">
                 <Link
                   to={`/posts/${post.slug}`}
-                  className="text-sm text-cream hover:text-gold transition-colors no-underline block truncate"
+                  className="text-sm text-post-ink hover:text-post-accent transition-colors no-underline block truncate"
                 >
                   {post.title}
                 </Link>
                 <div className="flex items-center gap-2 mt-1">
-                  <span className="text-[10px] text-cream-faint">{post.date}</span>
-                  <span className="text-[10px] text-cream-faint uppercase tracking-wider">{post.category}</span>
+                  <span className="text-[10px] text-post-muted">{post.date}</span>
+                  <span className="text-[10px] text-post-muted uppercase tracking-wider">{post.category}</span>
                   <span className={`text-[10px] px-1.5 py-0.5 rounded ${
                     post.published
-                      ? "bg-terminal/10 text-terminal"
+                      ? "bg-[#1f8a5b]/12 text-[#1f7a44]"
                       : "bg-gold-faint text-gold-dim"
                   }`}>
                     {post.published ? "Published" : "Draft"}
@@ -66,7 +66,7 @@ export default function PostsListPage() {
               </div>
               <button
                 onClick={() => handleDelete(post.slug, post.title)}
-                className="text-[10px] text-cream-faint hover:text-danger transition-colors ml-4"
+                className="text-[10px] text-post-muted hover:text-danger transition-colors ml-4"
               >
                 Delete
               </button>

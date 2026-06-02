@@ -67,16 +67,16 @@ export default function PostEditPage() {
   };
 
   if (!loaded) {
-    return <div className="text-cream-faint text-sm">Loading...</div>;
+    return <div className="text-post-muted text-sm">Loading...</div>;
   }
 
   return (
     <div>
       {/* Top bar */}
       <div className="flex items-center justify-between mb-5">
-        <h1 className="text-gold text-xl">{isNew ? "New Post" : "Edit Post"}</h1>
+        <h1 className="font-display text-post-ink text-3xl">{isNew ? "New Post" : "Edit Post"}</h1>
         <div className="flex items-center gap-3">
-          {saved && <span className="text-terminal text-xs">Saved</span>}
+          {saved && <span className="text-[#1f7a44] text-xs font-medium">Saved</span>}
           <button
             onClick={handleSave}
             disabled={saving}
@@ -96,7 +96,7 @@ export default function PostEditPage() {
           value={form.title}
           onChange={handleChange("title")}
           placeholder="Post title"
-          className="w-full bg-card border border-border rounded-lg px-4 py-3 text-lg text-cream placeholder:text-cream-faint font-display"
+          className="w-full bg-post-paper border border-post-rule rounded-lg px-4 py-3 text-2xl text-post-ink placeholder:text-post-muted font-display"
         />
 
         <div className="grid grid-cols-3 gap-3">
@@ -105,24 +105,24 @@ export default function PostEditPage() {
             value={form.category}
             onChange={handleChange("category")}
             placeholder="Category"
-            className="bg-card border border-border rounded-lg px-4 py-2.5 text-sm text-cream placeholder:text-cream-faint"
+            className="bg-post-paper border border-post-rule rounded-lg px-4 py-2.5 text-sm text-post-ink placeholder:text-post-muted"
           />
           <input
             type="date"
             value={form.date}
             onChange={handleChange("date")}
-            className="bg-card border border-border rounded-lg px-4 py-2.5 text-sm text-cream"
+            className="bg-post-paper border border-post-rule rounded-lg px-4 py-2.5 text-sm text-post-ink"
           />
           <input
             type="text"
             value={form.excerpt}
             onChange={handleChange("excerpt")}
             placeholder="Short excerpt"
-            className="bg-card border border-border rounded-lg px-4 py-2.5 text-sm text-cream placeholder:text-cream-faint"
+            className="bg-post-paper border border-post-rule rounded-lg px-4 py-2.5 text-sm text-post-ink placeholder:text-post-muted"
           />
         </div>
 
-        <label className="flex items-center gap-2 text-sm text-cream-dim cursor-pointer">
+        <label className="flex items-center gap-2 text-sm text-post-body cursor-pointer">
           <input
             type="checkbox"
             checked={form.published}

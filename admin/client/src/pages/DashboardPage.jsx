@@ -35,7 +35,7 @@ export default function DashboardPage() {
 
   return (
     <div>
-      <h1 className="text-gold text-xl mb-6">Dashboard</h1>
+      <h1 className="font-display text-post-ink text-3xl mb-8">Dashboard</h1>
 
       {/* Stats */}
       <div className="grid grid-cols-3 gap-4 mb-8">
@@ -45,15 +45,15 @@ export default function DashboardPage() {
       </div>
 
       {/* Publish section */}
-      <div className="bg-card border border-border rounded-xl p-5 mb-8">
-        <h2 className="text-cream text-sm mb-3">Publish to site</h2>
+      <div className="bg-post-paper border border-post-rule rounded-xl p-5 mb-8">
+        <h2 className="font-display text-post-ink text-lg mb-3">Publish to site</h2>
         {gitStatus && (
-          <p className="text-xs text-cream-faint mb-3">
-            Branch: <span className="text-cream">{gitStatus.branch}</span>
+          <p className="text-xs text-post-muted mb-3">
+            Branch: <span className="text-post-ink">{gitStatus.branch}</span>
             {" · "}
             {hasChanges
-              ? <span className="text-gold">{gitStatus.modified.length + gitStatus.created.length} pending changes</span>
-              : <span className="text-terminal">Up to date</span>
+              ? <span className="text-gold-dim font-medium">{gitStatus.modified.length + gitStatus.created.length} pending changes</span>
+              : <span className="text-[#1f7a44] font-medium">Up to date</span>
             }
           </p>
         )}
@@ -66,17 +66,17 @@ export default function DashboardPage() {
             {publishing ? "Publishing..." : "Commit & Push"}
           </button>
           {publishMessage && (
-            <span className="text-xs text-cream-faint">{publishMessage}</span>
+            <span className="text-xs text-post-muted">{publishMessage}</span>
           )}
         </div>
       </div>
 
       {/* Quick links */}
       <div className="flex gap-3">
-        <Link to="/posts/new" className="bg-card border border-border rounded-lg px-4 py-3 text-xs text-cream hover:border-gold-dim transition-colors no-underline">
+        <Link to="/posts/new" className="bg-post-paper border border-post-rule rounded-lg px-4 py-3 text-xs text-post-ink hover:border-post-accent transition-colors no-underline">
           + New post
         </Link>
-        <Link to="/projects/new" className="bg-card border border-border rounded-lg px-4 py-3 text-xs text-cream hover:border-gold-dim transition-colors no-underline">
+        <Link to="/projects/new" className="bg-post-paper border border-post-rule rounded-lg px-4 py-3 text-xs text-post-ink hover:border-post-accent transition-colors no-underline">
           + New project
         </Link>
       </div>
@@ -86,9 +86,9 @@ export default function DashboardPage() {
 
 function StatCard({ label, value }) {
   return (
-    <div className="bg-card border border-border rounded-xl p-4">
-      <div className="text-2xl text-gold mb-1">{value}</div>
-      <div className="text-xs text-cream-faint">{label}</div>
+    <div className="bg-post-paper border border-post-rule rounded-xl p-5">
+      <div className="font-display text-3xl text-post-accent mb-1">{value}</div>
+      <div className="font-mono text-[10px] tracking-[1.5px] uppercase text-post-muted">{label}</div>
     </div>
   );
 }

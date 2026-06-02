@@ -77,7 +77,7 @@ export default function ProjectEditPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-gold text-xl">{isNew ? "New Project" : "Edit Project"}</h1>
+        <h1 className="font-display text-post-ink text-3xl">{isNew ? "New Project" : "Edit Project"}</h1>
         <button
           onClick={handleSave}
           disabled={saving}
@@ -95,7 +95,7 @@ export default function ProjectEditPage() {
           value={form.title}
           onChange={handleChange("title")}
           placeholder="Project title"
-          className="w-full bg-card border border-border rounded-lg px-4 py-3 text-sm text-cream placeholder:text-cream-faint"
+          className="w-full bg-post-paper border border-post-rule rounded-lg px-4 py-3 text-sm text-post-ink placeholder:text-post-muted"
         />
 
         <div className="grid grid-cols-2 gap-4">
@@ -104,14 +104,14 @@ export default function ProjectEditPage() {
             value={form.type}
             onChange={handleChange("type")}
             placeholder="Type (e.g. Platform, Agency)"
-            className="bg-card border border-border rounded-lg px-4 py-3 text-sm text-cream placeholder:text-cream-faint"
+            className="bg-post-paper border border-post-rule rounded-lg px-4 py-3 text-sm text-post-ink placeholder:text-post-muted"
           />
           <input
             type="text"
             value={form.placeholder}
             onChange={handleChange("placeholder")}
             placeholder="Placeholder letter (e.g. A)"
-            className="bg-card border border-border rounded-lg px-4 py-3 text-sm text-cream placeholder:text-cream-faint"
+            className="bg-post-paper border border-post-rule rounded-lg px-4 py-3 text-sm text-post-ink placeholder:text-post-muted"
           />
         </div>
 
@@ -120,7 +120,7 @@ export default function ProjectEditPage() {
           onChange={handleChange("desc")}
           placeholder="Description"
           rows={3}
-          className="w-full bg-card border border-border rounded-lg px-4 py-3 text-sm text-cream placeholder:text-cream-faint resize-y"
+          className="w-full bg-post-paper border border-post-rule rounded-lg px-4 py-3 text-sm text-post-ink placeholder:text-post-muted resize-y"
         />
 
         <input
@@ -128,7 +128,7 @@ export default function ProjectEditPage() {
           value={form.tags}
           onChange={handleChange("tags")}
           placeholder="Tags (comma-separated: React, Supabase, AI)"
-          className="w-full bg-card border border-border rounded-lg px-4 py-3 text-sm text-cream placeholder:text-cream-faint"
+          className="w-full bg-post-paper border border-post-rule rounded-lg px-4 py-3 text-sm text-post-ink placeholder:text-post-muted"
         />
 
         <div className="grid grid-cols-2 gap-4">
@@ -137,27 +137,27 @@ export default function ProjectEditPage() {
             value={form.link}
             onChange={handleChange("link")}
             placeholder="Project URL (optional)"
-            className="bg-card border border-border rounded-lg px-4 py-3 text-sm text-cream placeholder:text-cream-faint"
+            className="bg-post-paper border border-post-rule rounded-lg px-4 py-3 text-sm text-post-ink placeholder:text-post-muted"
           />
           <input
             type="text"
             value={form.img}
             onChange={handleChange("img")}
             placeholder="Image URL (optional)"
-            className="bg-card border border-border rounded-lg px-4 py-3 text-sm text-cream placeholder:text-cream-faint"
+            className="bg-post-paper border border-post-rule rounded-lg px-4 py-3 text-sm text-post-ink placeholder:text-post-muted"
           />
         </div>
 
         {/* Gradient picker */}
         <div>
-          <label className="text-xs text-cream-faint block mb-2">Card gradient</label>
+          <label className="font-mono text-[10px] tracking-[1.5px] uppercase text-post-muted block mb-2">Card gradient</label>
           <div className="flex gap-2">
             {GRADIENT_OPTIONS.map((g) => (
               <button
                 key={g}
                 onClick={() => setForm((prev) => ({ ...prev, gradient: g }))}
                 className={`w-10 h-10 rounded-lg border-2 transition-all text-[8px] text-center leading-tight ${
-                  form.gradient === g ? "border-gold scale-110" : "border-border hover:border-border-light"
+                  form.gradient === g ? "border-gold scale-110" : "border-post-rule hover:border-post-muted"
                 }`}
                 style={{
                   background: [
@@ -178,11 +178,11 @@ export default function ProjectEditPage() {
 
         {/* Toggles */}
         <div className="flex gap-6">
-          <label className="flex items-center gap-2 text-sm text-cream-dim cursor-pointer">
+          <label className="flex items-center gap-2 text-sm text-post-body cursor-pointer">
             <input type="checkbox" checked={form.isNew} onChange={handleChange("isNew")} className="accent-gold" />
             Show NEW badge
           </label>
-          <label className="flex items-center gap-2 text-sm text-cream-dim cursor-pointer">
+          <label className="flex items-center gap-2 text-sm text-post-body cursor-pointer">
             <input type="checkbox" checked={form.published} onChange={handleChange("published")} className="accent-gold" />
             Published
           </label>

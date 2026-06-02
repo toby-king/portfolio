@@ -84,10 +84,10 @@ export default function Toolbar({ editor }) {
   };
 
   return (
-    <div className="flex flex-wrap items-center gap-0.5 px-3 py-2 border-b border-border bg-bg-light">
+    <div className="flex flex-wrap items-center gap-0.5 px-3 py-2 border-b border-post-rule bg-[#f4f2ec]">
       {GROUPS.map((group, gi) => (
         <div key={gi} className="flex items-center gap-0.5">
-          {gi > 0 && <div className="w-px h-5 bg-border mx-1.5" />}
+          {gi > 0 && <div className="w-px h-5 bg-post-rule mx-1.5" />}
           {group.buttons.map((btn) => (
             <button
               key={btn.label}
@@ -95,8 +95,8 @@ export default function Toolbar({ editor }) {
               title={btn.title}
               className={`px-2 py-1 rounded text-xs transition-colors ${
                 isActive(btn)
-                  ? "bg-gold-faint text-gold"
-                  : "text-cream-faint hover:text-cream hover:bg-border"
+                  ? "bg-gold-faint text-gold-dim"
+                  : "text-post-muted hover:text-post-ink hover:bg-black/5"
               } ${btn.mono ? "font-mono" : ""} ${btn.italic ? "italic" : ""} ${btn.strike ? "line-through" : ""}`}
             >
               {btn.label}

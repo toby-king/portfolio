@@ -84,7 +84,7 @@ export default function Editor({ content, onChange }) {
   }, [content, editor]);
 
   return (
-    <div className="border border-border rounded-xl overflow-hidden bg-card">
+    <div className="border border-post-rule rounded-xl overflow-hidden bg-post-paper">
       <Toolbar editor={editor} />
       <EditorContent editor={editor} />
     </div>
