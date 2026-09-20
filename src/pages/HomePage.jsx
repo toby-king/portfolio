@@ -31,16 +31,6 @@ export default function HomePage() {
       <SplashScreen onComplete={() => setSplashDone(true)} />
       <FloatingShapes />
 
-      {/* Marquee ticker */}
-      <div
-        className="border-b border-border-subtle py-2 overflow-hidden whitespace-nowrap mt-1 relative z-10"
-        style={{ background: "rgba(28,36,24,0.9)", backdropFilter: "blur(12px)" }}
-      >
-        <div className="inline-block animate-marquee font-mono text-[11px] text-cream-faint tracking-wider opacity-50">
-          {"✦ Welcome to Toby's homepage ✦ Developer & Product Manager ✦ Best viewed on any screen ✦ Last updated March 2026 ✦ Hand-crafted with care ✦ ".repeat(2)}
-        </div>
-      </div>
-
       <div className="relative z-[1]">
         {/* Hero header */}
         <header className="text-center max-w-[820px] mx-auto px-6 pt-[clamp(56px,10vw,96px)] pb-[clamp(32px,6vw,56px)]">
