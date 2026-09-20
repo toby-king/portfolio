@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 const PHRASE = "Let's build something.";
-const STAGGER = 0.04;
-const DURATION = 0.5;
+const STAGGER = 0.025;
+const DURATION = 0.4;
 
 export default function SplashScreen({ onComplete }) {
   const [showLetters, setShowLetters] = useState(false);
@@ -19,15 +19,15 @@ export default function SplashScreen({ onComplete }) {
       timers.push(setTimeout(fn, ms));
     };
 
-    schedule(() => setDotsVisible([true, false, false]), 400);
-    schedule(() => setDotsVisible([true, true, false]), 700);
-    schedule(() => setDotsVisible([true, true, true]), 1000);
-    schedule(() => setShowLetters(true), 1400);
-    schedule(() => setLineExpanded(true), 2700);
-    schedule(() => setSubtitleVisible(true), 3100);
-    schedule(() => setTextFading(true), 5300);
-    schedule(() => setCurtainOpen(true), 5600);
-    schedule(() => { setGone(true); onComplete(); }, 6700);
+    schedule(() => setDotsVisible([true, false, false]), 150);
+    schedule(() => setDotsVisible([true, true, false]), 300);
+    schedule(() => setDotsVisible([true, true, true]), 450);
+    schedule(() => setShowLetters(true), 600);
+    schedule(() => setLineExpanded(true), 1400);
+    schedule(() => setSubtitleVisible(true), 1650);
+    schedule(() => setTextFading(true), 2400);
+    schedule(() => setCurtainOpen(true), 2600);
+    schedule(() => { setGone(true); onComplete(); }, 3300);
 
     return () => timers.forEach(clearTimeout);
   }, [onComplete]);
@@ -120,7 +120,7 @@ export default function SplashScreen({ onComplete }) {
 
         {/* Expanding line */}
         <div
-          className="h-0.5 bg-gold rounded-sm mt-7 transition-all duration-800"
+          className="h-0.5 bg-gold rounded-sm mt-7 transition-all duration-500"
           style={{
             width: lineExpanded ? "min(320px, 55vw)" : "0px",
             opacity: lineExpanded ? 0.8 : 0,
@@ -130,7 +130,7 @@ export default function SplashScreen({ onComplete }) {
 
         {/* Subtitle */}
         <p
-          className="font-mono text-xs text-cream-faint mt-[18px] tracking-[2px] uppercase transition-all duration-600 ease-out"
+          className="font-mono text-xs text-cream-faint mt-[18px] tracking-[2px] uppercase transition-all duration-400 ease-out"
           style={{
             opacity: subtitleVisible ? 0.5 : 0,
             transform: subtitleVisible ? "translateY(0)" : "translateY(8px)",

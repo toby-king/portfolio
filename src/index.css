@@ -132,12 +132,12 @@ body {
 
 /* Splash screen curtain transition */
 .curtain {
-  transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
+  transition: transform 0.7s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 /* Splash text container transition */
 .splash-text {
-  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* Reveal animation */

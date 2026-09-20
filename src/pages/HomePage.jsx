@@ -12,6 +12,7 @@ import ProjectCard from "../components/ProjectCard";
 import BlogRow from "../components/BlogRow";
 import NavLink from "../components/NavLink";
 import SectionLabel from "../components/SectionLabel";
+import ComingSoon from "../components/ComingSoon";
 
 const projects = getAllProjects();
 const posts = getAllPosts();
@@ -120,11 +121,15 @@ export default function HomePage() {
           {/* Projects */}
           <Section id="projects" delay={0.05}>
             <SectionLabel number="02" text="Projects" />
-            <div className="projects-grid grid grid-cols-2 gap-[18px]">
-              {projects.map((project, index) => (
-                <ProjectCard key={project.id} project={project} revealDelay={index * 0.1} />
-              ))}
-            </div>
+            {projects.length > 0 ? (
+              <div className="projects-grid grid grid-cols-2 gap-[18px]">
+                {projects.map((project, index) => (
+                  <ProjectCard key={project.id} project={project} revealDelay={index * 0.1} />
+                ))}
+              </div>
+            ) : (
+              <ComingSoon message="New projects are in the works — check back soon." />
+            )}
           </Section>
 
           {/* Skills */}
@@ -150,11 +155,15 @@ export default function HomePage() {
           {/* Blog */}
           <Section id="blog" delay={0.05}>
             <SectionLabel number="04" text="Writing" />
-            <div>
-              {posts.map((post) => (
-                <BlogRow key={post.slug} post={post} />
-              ))}
-            </div>
+            {posts.length > 0 ? (
+              <div>
+                {posts.map((post) => (
+                  <BlogRow key={post.slug} post={post} />
+                ))}
+              </div>
+            ) : (
+              <ComingSoon message="Nothing published yet — new writing is on the way." />
+            )}
           </Section>
 
           {/* Contact */}
@@ -190,11 +199,8 @@ export default function HomePage() {
               <div key={i} className="w-[5px] h-[5px] rounded-full bg-gold opacity-25" />
             ))}
           </div>
-          <p className="font-display text-base text-cream-faint opacity-40 mb-3">
-            Made with care & caffeine.
-          </p>
           <p className="font-mono text-[11px] text-cream-faint opacity-35 leading-loose">
-            © 2026 Toby · Hand-crafted in Dorset
+            © 2026 Toby King · Crafted in Dorset
           </p>
         </footer>
       </div>
