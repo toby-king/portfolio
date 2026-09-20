@@ -99,13 +99,32 @@ export default function HomePage() {
                 </div>
                 <div className="font-body text-[15.5px] leading-[1.85] text-cream-dim">
                   <p>
-                    <strong className="text-cream font-semibold">Hey — I'm Toby.</strong> I build products and write code, working across the full stack from early-stage product strategy through to shipping real software people want to use.
+                    <strong className="text-cream font-semibold">Hi, I'm Toby.</strong> I'm a software developer and product manager, who's been building web apps since I was a kid, from scrappy startup projects through to AI products for private equity firms. I believe in building products with a user-centric mindset, figuring out what people actually want before we build.
                   </p>
                   <p className="mt-3">
-                    Right now I'm focused on AI-powered tools, voice interfaces, and acquisition advisory platforms. Previously built things with React, Bubble.io, Supabase, and more unusual stacks than I can count.
+                    When I'm not building innovative digital products, I have a habit of buying old tech and cars and retrofitting them, and spending way too long dialling in my espresso machine.
                   </p>
                   <p className="mt-3">
-                    When I'm not shipping features, you'll find me restoring vintage hardware and putting modern guts inside old machines. Retro tech with a modern soul.
+                    I also write, including some political commentary, so expect the odd opinion piece alongside my product work.
+                  </p>
+                  <p className="mt-3">
+                    If you want to reach out or talk to me about exciting new digital products, feel free to drop me a line on{" "}
+                    <a
+                      href="https://www.linkedin.com/in/tobyking77/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gold underline decoration-gold/40 underline-offset-[3px] hover:decoration-gold transition-colors duration-200"
+                    >
+                      LinkedIn
+                    </a>{" "}
+                    or by{" "}
+                    <a
+                      href="mailto:toby.king77@gmail.com"
+                      className="text-gold underline decoration-gold/40 underline-offset-[3px] hover:decoration-gold transition-colors duration-200"
+                    >
+                      email
+                    </a>
+                    .
                   </p>
 
                   <div className="terminal-block mt-[22px] rounded-[10px] px-5 py-4 font-mono text-[clamp(11px,2.5vw,13px)] text-terminal relative overflow-hidden break-words">
