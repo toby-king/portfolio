@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "id": "fantasy-bake-off",
+    "title": "Fantasy Bake Off",
+    "type": "Web App",
+    "desc": "Fantasy Bake Off is a mobile-first web app which allows players to predict how the series goes each week, from who leaves to who gets Star Baker or a Hollywood handshake. Made for friends to have a bit of competition during the show.",
+    "tags": [
+      "Next.JS",
+      "Supabase",
+      "Mobile"
+    ],
+    "gradient": 0,
+    "img": null,
+    "placeholder": "B",
+    "link": "https://fantasy-gbbo.vercel.app",
+    "isNew": true,
+    "sortOrder": 0,
+    "published": true
+  }
+]
